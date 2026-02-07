@@ -18,12 +18,7 @@ router.get('/portfolio', (req, res) => {
 router.get('/contact', (req, res) => {
     res.render('contact');
 });
-router.post('/contact', (req, res) => {
-    // Here you would typically handle the form submission,
-    // e.g., save the data to a database or send an email.
-    console.log(req.body);
-    res.render('contact', { message: 'Thank you for your message!' });
-});
+
 
 router.get('/projects', (req, res) => {
     res.render('projects');

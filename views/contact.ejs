@@ -30,9 +30,12 @@
               data-aos="fade-up"
               data-aos-delay="400"
             >
-              <i class="bi bi-envelope flex-shrink-0"></i>
+              <a href="#contactForm">
+                <i class="bi bi-envelope flex-shrink-0"></i>
+              </a>
+
               <div>
-                <h3>Email Us</h3>
+                <h3>Email Address:</h3>
                 <p>programmingtemp1@gmail.com</p>
               </div>
             </div>
@@ -47,12 +50,11 @@
               referrerpolicy="no-referrer-when-downgrade"
             ></iframe>
           </div>
-
           <div class="col-lg-12 mt-5 text-center">
             <form
+              id="contactForm"
               class="row g-3 needs-validation"
-              novalidate
-              action="/portfolio/contact"
+              action="https://formspree.io/f/xdaloldl"
               method="post"
             >
               <div class="col-md-8 offset-md-2">
@@ -62,7 +64,7 @@
                   class="form-control"
                   id="name"
                   name="name"
-                  placeholder="your name"
+                  placeholder="Your name"
                   required
                 />
                 <div class="valid-feedback">Looks good!</div>
@@ -75,7 +77,7 @@
                     class="form-control"
                     id="email"
                     name="email"
-                    placeholder="email address"
+                    placeholder="Email address"
                     required
                   />
                   <div class="invalid-feedback">Please insert your e-mail!</div>
@@ -83,7 +85,11 @@
               </div>
               <div class="col-md-8 offset-md-2">
                 <label for="message" class="form-label">Your Message:</label>
-                <textarea class="form-control" id="message" required></textarea>
+                <textarea
+                  class="form-control"
+                  name="message"
+                  required
+                ></textarea>
                 <div class="invalid-feedback">Please enter your message.</div>
               </div>
               <div class="col-12">
@@ -92,7 +98,6 @@
                 </button>
               </div>
             </form>
-            <!-- DO A FORM! -->
           </div>
           <!-- End Contact Form -->
         </div>
@@ -101,3 +106,25 @@
   </section>
   <!-- /Contact Section -->
 </main>
+<script>
+  (() => {
+    "use strict";
+
+    const forms = document.querySelectorAll(".needs-validation");
+
+    Array.from(forms).forEach((form) => {
+      form.addEventListener(
+        "submit",
+        (event) => {
+          if (!form.checkValidity()) {
+            event.preventDefault();
+            event.stopPropagation();
+          }
+
+          form.classList.add("was-validated");
+        },
+        false,
+      );
+    });
+  })();
+</script>
